@@ -1,0 +1,384 @@
+/* ==========================================================================
+   SHUBH AWAS PROPERTIES — INVESTOR RELATIONS
+   Layered on top of site.css. Same tokens, a quieter and more documentary
+   register: fewer flourishes, more numbers, everything caveated.
+   ========================================================================== */
+
+body.ir {
+  background: var(--ink);
+  color: var(--t-on-dark);
+}
+body.ir h1, body.ir h2, body.ir h3 { color: var(--t-on-dark); }
+body.ir h1 em, body.ir h2 em, body.ir h3 em { color: var(--aqua); }
+body.ir .lede { color: var(--t-on-dark-mute); }
+body.ir .eyebrow { color: var(--teal); }
+body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
+
+/* ---- IR header ---------------------------------------------------------- */
+.irnav {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(11,19,43,.94);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+          backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--line-dark);
+}
+.irnav__in {
+  width: min(100% - (var(--gut) * 2), var(--shell-w));
+  margin-inline: auto;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  padding: .7rem 0;
+}
+.irnav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(.9rem, 2vw, 1.9rem);
+  flex-wrap: wrap;
+}
+.irnav__link {
+  font-size: .715rem;
+  font-weight: 400;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--t-on-dark);
+  padding: .35rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.irnav__link:hover { color: var(--aqua); border-bottom-color: var(--aqua); }
+.irnav__back { color: var(--teal); }
+
+/* Wrapped onto four lines, this sticky bar ate a fifth of a phone screen.
+   Below the breakpoint the links become one horizontally scrollable row, so
+   the header stays about two lines tall and every section is still reachable. */
+@media (max-width: 760px) {
+  .irnav__in { gap: .55rem; padding: .6rem 0; min-height: 0; }
+  .irnav__links {
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    gap: 1.15rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* the row is flush with the gutter, so let it bleed to the screen edge */
+    margin-inline: calc(var(--gut) * -1);
+    padding-inline: var(--gut);
+  }
+  .irnav__links::-webkit-scrollbar { display: none; }
+  .irnav__link { white-space: nowrap; font-size: .66rem; padding: .2rem 0; }
+}
+
+/* ---- IR hero ------------------------------------------------------------ */
+.irhero {
+  position: relative;
+  padding: clamp(3.4rem, 8vw, 6.5rem) 0 clamp(3rem, 6vw, 5rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+.irhero::before {
+  content: "";
+  position: absolute;
+  inset: -30% -20% auto -20%;
+  height: 760px;
+  background:
+    radial-gradient(58% 62% at 22% 30%, rgba(91,192,190,.2) 0%, transparent 70%),
+    radial-gradient(46% 54% at 84% 12%, rgba(111,255,233,.13) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+.irhero h1 {
+  font-size: clamp(2.2rem, 1.3rem + 3.9vw, 4.1rem);
+  letter-spacing: .028em;
+  max-width: 17ch;
+}
+.irhero__stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.3rem;
+  padding: .42rem .95rem;
+  border: 1px solid rgba(111,255,233,.3);
+  border-radius: 999px;
+  font-size: .655rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.irhero__stamp b {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--aqua);
+  box-shadow: 0 0 0 3px rgba(111,255,233,.18);
+}
+.irhero .lede { margin-top: 1.5rem; max-width: 66ch; }
+.irhero__actions {
+  margin-top: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .9rem;
+}
+
+/* ---- Opportunity cards -------------------------------------------------- */
+.opps {
+  display: grid;
+  gap: 1px;
+  background: var(--line-dark);
+  border: 1px solid var(--line-dark);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+.opp {
+  background: var(--ink);
+  padding: clamp(1.6rem, 3.2vw, 2.4rem);
+  display: grid;
+  align-content: start;
+  gap: .75rem;
+}
+.opp__label {
+  font-size: .615rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.opp h3 { font-size: 1.32rem; }
+.opp p { font-size: .93rem; color: var(--t-on-dark-mute); }
+
+/* ---- Use of funds ------------------------------------------------------- */
+.fundlist {
+  display: grid;
+  gap: 1.55rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.fundrow__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .6rem;
+}
+.fundrow__top strong {
+  font-weight: 400;
+  font-size: 1.02rem;
+  letter-spacing: .01em;
+}
+.fundrow__top span {
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--aqua);
+}
+.fundrow__bar {
+  height: 5px;
+  background: rgba(111,255,233,.13);
+  overflow: hidden;
+}
+.fundrow__bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--c3), var(--teal) 55%, var(--aqua));
+  transition: width 1.25s var(--ease-out);
+}
+.fundrow p {
+  margin: .6rem 0 0;
+  font-size: .87rem;
+  color: var(--t-on-dark-mute);
+}
+
+/* ---- Numbered process --------------------------------------------------- */
+.steps {
+  display: grid;
+  gap: 0;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  counter-reset: step;
+}
+.step {
+  display: grid;
+  gap: .35rem 1.6rem;
+  grid-template-columns: auto 1fr;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line-dark);
+}
+.step:last-child { border-bottom: 1px solid var(--line-dark); }
+.step::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  grid-row: span 2;
+  font-family: var(--f-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--teal);
+  padding-top: .18rem;
+}
+.step h3 { font-size: 1.18rem; }
+.step p { font-size: .93rem; color: var(--t-on-dark-mute); }
+
+/* ---- Terms table -------------------------------------------------------- */
+.termwrap { overflow-x: auto; margin-top: clamp(2rem, 4vw, 3rem); }
+.terms {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+.terms th, .terms td {
+  text-align: left;
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid var(--line-dark);
+  vertical-align: top;
+}
+.terms th {
+  font-family: var(--f-text);
+  font-weight: 500;
+  font-size: .625rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  white-space: nowrap;
+}
+.terms td:first-child {
+  color: var(--t-on-dark);
+  white-space: nowrap;
+  width: 30%;
+}
+.terms td:last-child { color: var(--t-on-dark-mute); }
+.terms tr:last-child td { border-bottom: 0; }
+
+/* ---- Risk / disclosure panel -------------------------------------------- */
+.risk {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3.2vw, 2.3rem);
+  border: 1px solid rgba(111,255,233,.22);
+  border-left-width: 3px;
+  background: rgba(91,192,190,.07);
+}
+.risk h3 {
+  font-size: 1.2rem;
+  margin-bottom: .9rem;
+}
+.risk ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .85rem;
+}
+/* Not display:grid - see the note on .creds li in site.css. Each <b> lead-in
+   would become its own grid item and push the sentence after it into the narrow
+   marker column. */
+.risk li {
+  position: relative;
+  padding-left: 1.7rem;
+  font-size: .93rem;
+  line-height: 1.6;
+  color: var(--t-on-dark-mute);
+}
+.risk li b { color: var(--t-on-dark); font-weight: 500; }
+.risk li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .6em;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--teal);
+  transform: rotate(45deg);
+}
+
+/* ---- Connect band ------------------------------------------------------- */
+.connect {
+  background: var(--ink-800);
+  border-top: 1px solid var(--line-dark);
+}
+.connect__grid { display: grid; gap: clamp(2.2rem, 5vw, 4rem); }
+@media (min-width: 940px) { .connect__grid { grid-template-columns: 1fr 1.1fr; } }
+
+/* ---- Modal -------------------------------------------------------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: var(--gut);
+  background: rgba(6,11,24,.86);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+}
+.modal.is-open { opacity: 1; }
+/* Presence is controlled by the hidden attribute alone. Transitioning
+   visibility as well would leave the panel unfocusable for the length of the
+   transition, so the dialog would open without taking keyboard focus.
+   .modal sets display:grid, which beats the UA rule for [hidden], so it has
+   to be restated here. */
+.modal[hidden] { display: none; }
+.modal__panel {
+  position: relative;
+  width: min(100%, 560px);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--ink);
+  border: 1px solid var(--line-dark);
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+  transform: translateY(18px);
+  transition: transform .45s var(--ease-out);
+}
+.modal.is-open .modal__panel { transform: none; }
+.modal__x {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 1px solid var(--line-dark);
+  border-radius: 2px;
+  color: var(--t-on-dark);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color .3s var(--ease), color .3s var(--ease);
+}
+.modal__x:hover { border-color: var(--aqua); color: var(--aqua); }
+.modal h2 { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.1rem); margin-bottom: .6rem; }
+.modal .form {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+/* ---- IR footer ---------------------------------------------------------- */
+.irfoot {
+  background: var(--ink-950);
+  border-top: 1px solid var(--line-dark);
+  padding: clamp(2.4rem, 5vw, 3.4rem) 0 2rem;
+  color: var(--t-on-dark-mute);
+  font-size: .8rem;
+}
+.irfoot__bot {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line-dark);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem 1.6rem;
+  justify-content: space-between;
+  font-size: .775rem;
+}
+
+/* Same automatic-minimum guard as site.css section 18. */
+.connect__grid > *,
+.opps > *,
+.steps > * { min-width: 0; }
