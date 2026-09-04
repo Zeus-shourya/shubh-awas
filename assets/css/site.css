@@ -510,13 +510,17 @@ p:last-child { margin-bottom: 0; }
   height: 100%;
   object-fit: cover;
 }
+/* Three layers, front to back. The first is a scrim centred on the headline:
+   without it the lit-window squares in the skyline read as loose confetti
+   scattered through the type - one of them landed inside "WELCOME TO". */
 .hero__veil {
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
+    radial-gradient(64% 46% at 50% 45%, rgba(11,19,43,.88) 0%, rgba(11,19,43,.66) 58%, rgba(11,19,43,0) 100%),
     radial-gradient(120% 78% at 50% 8%, rgba(28,37,65,.24) 0%, rgba(11,19,43,.7) 62%, rgba(11,19,43,.93) 100%),
-    linear-gradient(180deg, rgba(11,19,43,.84) 0%, rgba(11,19,43,.3) 36%, rgba(11,19,43,.9) 100%);
+    linear-gradient(180deg, rgba(11,19,43,.84) 0%, rgba(11,19,43,.34) 36%, rgba(11,19,43,.9) 100%);
 }
 .hero__in {
   padding: calc(var(--hdr) + 3.5rem) var(--gut) 6.5rem;
@@ -672,13 +676,27 @@ p:last-child { margin-bottom: 0; }
   .split--wide-r { grid-template-columns: 1fr 1.18fr; }
 }
 
-.portrait { position: relative; isolation: isolate; }
+/* Stacked (below the 900px split breakpoint) the photo filled the whole column,
+   which at 4/5 made it 116% of the viewport height - a full screen of face
+   before a single word of copy. Capped and centred there instead. */
+.portrait {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 380px;
+  margin-inline: auto;
+}
 
 /* The prose column is far taller than the photograph. Centring the photo in
    that track strands it in the middle of the text with dead space above and
    below; sticking it to the top keeps the face with the reader instead. */
 @media (min-width: 900px) {
-  .portrait { position: sticky; top: calc(var(--hdr) + 2.2rem); }
+  .portrait {
+    position: sticky;
+    top: calc(var(--hdr) + 2.2rem);
+    max-width: none;
+    margin-inline: 0;
+  }
 }
 .portrait img {
   width: 100%;
@@ -687,14 +705,20 @@ p:last-child { margin-bottom: 0; }
   object-position: 50% 20%;
   filter: saturate(.94) contrast(1.03);
 }
-.portrait::before {
-  content: "";
-  position: absolute;
-  inset: auto -14px -14px auto;
-  width: 62%;
-  height: 62%;
-  border: 1px solid var(--teal);
-  z-index: -1;
+/* Offset accent frame. Only from 900px up: once the photo is capped and
+   centred on narrower screens the frame peeks out from behind it as a stray
+   detached line rather than an accent. */
+.portrait::before { content: none; }
+@media (min-width: 900px) {
+  .portrait::before {
+    content: "";
+    position: absolute;
+    inset: auto -14px -14px auto;
+    width: 62%;
+    height: 62%;
+    border: 1px solid var(--teal);
+    z-index: -1;
+  }
 }
 .portrait__tag {
   position: absolute;
@@ -1211,6 +1235,23 @@ p:last-child { margin-bottom: 0; }
   0%   { transform: scale(1);    opacity: .7; }
   70%  { transform: scale(1.55); opacity: 0; }
   100% { transform: scale(1.55); opacity: 0; }
+}
+
+/* The button must survive every breakpoint and every page. Nothing else in the
+   stylesheet is allowed to hide it, so these are stated explicitly rather than
+   left to inheritance. The modal (z-index 200) is the only thing that covers
+   it, which is correct - a dialog should own the screen while it is open. */
+.wa {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fixed to the bottom-right, it sat over the tail of the contact form and the
+   last footer row on narrow screens. Reserve the space it occupies. */
+@media (max-width: 760px) {
+  .footer { padding-bottom: calc(2rem + 78px); }
+  .form { padding-bottom: calc(clamp(1.5rem, 3.4vw, 2.5rem) + 34px); }
 }
 
 /* ---- 17. Reveal on scroll -----------------------------------------------
