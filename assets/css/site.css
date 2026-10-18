@@ -1332,3 +1332,24 @@ p:last-child { margin-bottom: 0; }
 .iband__in > *,
 .footer__top > *,
 .cards > * { min-width: 0; }
+
+/* ---- 19. Footer NAP -----------------------------------------------------
+   The address is repeated in the footer because Google compares the site's
+   NAP against the Business Profile; <address> is the right element for it.
+   -------------------------------------------------------------------------- */
+.footer__nap {
+  margin-top: 1.3rem;
+  font-style: normal;
+  font-size: .88rem;
+  line-height: 1.7;
+  color: var(--t-body);
+}
+
+/* The office block in .dl keeps white-space: pre-line so the address breaks
+   across lines on its own. That same rule was knocking the link's arrow off
+   the baseline, so the link opts back out of it. */
+.dl dd .js-directions {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+}

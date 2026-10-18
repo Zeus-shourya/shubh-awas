@@ -51,6 +51,22 @@
     $$(".js-address").forEach(function (el) {
       if (CFG.address) el.textContent = CFG.address;
     });
+
+    /* Directions and the Google listing. On a phone a tappable address is the
+       difference between a site visit and a lost lead, so the address block
+       carries its own link rather than relying on the visitor to copy it. */
+    $$(".js-directions").forEach(function (a) {
+      if (!CFG.directionsUrl) return;
+      a.href = CFG.directionsUrl;
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
+    $$(".js-google-profile").forEach(function (a) {
+      if (!CFG.googleProfile) return;
+      a.href = CFG.googleProfile;
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
     $$(".js-hours").forEach(function (el) {
       if (CFG.hours) el.textContent = CFG.hours;
     });
