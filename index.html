@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
 
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/site.js" defer></script>
@@ -164,31 +164,31 @@
   <svg class="hero__art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
       <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0"   stop-color="#0B132B"/>
-        <stop offset=".42" stop-color="#1C2541"/>
-        <stop offset=".78" stop-color="#3A506B"/>
-        <stop offset="1"   stop-color="#1C2541"/>
+        <stop offset="0"   stop-color="#FFFFFF"/>
+        <stop offset=".42" stop-color="#F6F9FB"/>
+        <stop offset=".78" stop-color="#E9F1F5"/>
+        <stop offset="1"   stop-color="#DFE8F0"/>
       </linearGradient>
       <linearGradient id="glow" x1="0" y1="1" x2="0" y2="0">
-        <stop offset="0"   stop-color="#5BC0BE" stop-opacity=".42"/>
+        <stop offset="0"   stop-color="#5BC0BE" stop-opacity=".30"/>
         <stop offset="1"   stop-color="#5BC0BE" stop-opacity="0"/>
       </linearGradient>
       <linearGradient id="tower" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#2A3A5E"/>
-        <stop offset="1" stop-color="#131C36"/>
+        <stop offset="0" stop-color="#C6D3E0"/>
+        <stop offset="1" stop-color="#AFC0D2"/>
       </linearGradient>
       <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#0B132B"/>
-        <stop offset="1" stop-color="#060B18"/>
+        <stop offset="0" stop-color="#E9F1F5"/>
+        <stop offset="1" stop-color="#D8E4EE"/>
       </linearGradient>
     </defs>
 
     <rect width="1600" height="900" fill="url(#sky)"/>
     <ellipse cx="800" cy="640" rx="900" ry="260" fill="url(#glow)"/>
-    <circle cx="1240" cy="170" r="46" fill="#6FFFE9" opacity=".05"/>
+    <circle cx="1240" cy="170" r="46" fill="#5BC0BE" opacity=".12"/>
 
     <!-- far skyline -->
-    <g fill="#1F2A47" opacity=".9">
+    <g fill="#D6E2EC" opacity=".95">
       <rect x="60"   y="470" width="86"  height="200"/>
       <rect x="168"  y="418" width="64"  height="252"/>
       <rect x="252"  y="500" width="104" height="170"/>
@@ -209,7 +209,7 @@
     </g>
 
     <!-- lit windows -->
-    <g fill="#6FFFE9" opacity=".26">
+    <g fill="#3AA7A3" opacity=".5">
       <rect x="424" y="380" width="9" height="14"/><rect x="452" y="380" width="9" height="14"/>
       <rect x="480" y="416" width="9" height="14"/><rect x="424" y="452" width="9" height="14"/>
       <rect x="480" y="488" width="9" height="14"/><rect x="452" y="524" width="9" height="14"/>
@@ -226,11 +226,11 @@
     </g>
 
     <!-- horizon line -->
-    <rect x="0" y="668" width="1600" height="2" fill="#5BC0BE" opacity=".3"/>
+    <rect x="0" y="668" width="1600" height="2" fill="#5BC0BE" opacity=".45"/>
 
     <!-- plotted land in the foreground -->
     <rect x="0" y="670" width="1600" height="230" fill="url(#ground)"/>
-    <g stroke="#5BC0BE" stroke-width="1.4" opacity=".26" fill="none">
+    <g stroke="#5BC0BE" stroke-width="1.4" opacity=".3" fill="none">
       <path d="M-40 706H1640M-80 760H1680M-140 826H1740M-220 900H1820"/>
       <path d="M250 670 130 900M470 670 410 900M690 670 680 900M910 670 950 900M1130 670 1220 900M1350 670 1490 900"/>
     </g>
@@ -381,19 +381,19 @@
           <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs>
               <linearGradient id="fa-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#1C2541"/><stop offset="1" stop-color="#3A506B"/>
+                <stop offset="0" stop-color="#EDF3F7"/><stop offset="1" stop-color="#DCE7EF"/>
               </linearGradient>
             </defs>
             <rect width="640" height="400" fill="url(#fa-sky)"/>
-            <circle cx="512" cy="86" r="38" fill="#6FFFE9" opacity=".14"/>
-            <g fill="#0B132B">
+            <circle cx="512" cy="86" r="38" fill="#5BC0BE" opacity=".22"/>
+            <g fill="#BCCBDB">
               <rect x="72"  y="150" width="96"  height="250"/>
               <rect x="188" y="96"  width="78"  height="304"/>
               <rect x="286" y="176" width="110" height="224"/>
               <rect x="416" y="122" width="84"  height="278"/>
               <rect x="520" y="196" width="72"  height="204"/>
             </g>
-            <g fill="#6FFFE9" opacity=".55">
+            <g fill="#2C3A58" opacity=".45">
               <rect x="90"  y="176" width="12" height="16"/><rect x="126" y="176" width="12" height="16"/>
               <rect x="90"  y="222" width="12" height="16"/><rect x="126" y="268" width="12" height="16"/>
               <rect x="90"  y="314" width="12" height="16"/>
@@ -405,7 +405,7 @@
               <rect x="434" y="288" width="12" height="16"/>
               <rect x="538" y="224" width="12" height="16"/><rect x="538" y="316" width="12" height="16"/>
             </g>
-            <rect x="0" y="352" width="640" height="48" fill="#0B132B" opacity=".92"/>
+            <rect x="0" y="352" width="640" height="48" fill="#C6D3E0" opacity=".92"/>
             <rect x="0" y="350" width="640" height="2" fill="#5BC0BE" opacity=".5"/>
           </svg>
           <div class="card__badges">
@@ -440,28 +440,28 @@
           <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs>
               <linearGradient id="fl-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#1C2541"/><stop offset="1" stop-color="#3A506B"/>
+                <stop offset="0" stop-color="#EDF3F7"/><stop offset="1" stop-color="#DCE7EF"/>
               </linearGradient>
               <linearGradient id="fl-gnd" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#0B132B"/><stop offset="1" stop-color="#060B18"/>
+                <stop offset="0" stop-color="#E4EDF3"/><stop offset="1" stop-color="#D2DEE8"/>
               </linearGradient>
             </defs>
             <rect width="640" height="400" fill="url(#fl-sky)"/>
-            <circle cx="118" cy="80" r="34" fill="#6FFFE9" opacity=".13"/>
+            <circle cx="118" cy="80" r="34" fill="#5BC0BE" opacity=".2"/>
             <rect x="0" y="150" width="640" height="250" fill="url(#fl-gnd)"/>
             <rect x="0" y="148" width="640" height="2" fill="#5BC0BE" opacity=".45"/>
             <!-- plot grid in perspective -->
-            <g stroke="#5BC0BE" stroke-width="1.5" fill="none" opacity=".4">
+            <g stroke="#5BC0BE" stroke-width="1.5" fill="none" opacity=".45">
               <path d="M-30 186H670M-60 232H700M-110 292H750M-180 372H820"/>
               <path d="M120 150 60 400M232 150 210 400M344 150 360 400M456 150 512 400M568 150 664 400"/>
             </g>
             <!-- boundary trees -->
-            <g fill="#5BC0BE" opacity=".5">
+            <g fill="#3AA7A3" opacity=".6">
               <circle cx="70"  cy="176" r="9"/><circle cx="188" cy="176" r="9"/>
               <circle cx="306" cy="176" r="9"/><circle cx="424" cy="176" r="9"/>
               <circle cx="542" cy="176" r="9"/>
             </g>
-            <g fill="#6FFFE9" opacity=".85">
+            <g fill="#1B8580" opacity=".9">
               <rect x="252" y="248" width="52" height="34" rx="2"/>
               <path d="M246 248 278 224l32 24z"/>
             </g>
@@ -497,18 +497,18 @@
           <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs>
               <linearGradient id="om-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#1C2541"/><stop offset="1" stop-color="#3A506B"/>
+                <stop offset="0" stop-color="#EDF3F7"/><stop offset="1" stop-color="#DCE7EF"/>
               </linearGradient>
             </defs>
             <rect width="640" height="400" fill="url(#om-sky)"/>
-            <circle cx="546" cy="76" r="30" fill="#6FFFE9" opacity=".13"/>
+            <circle cx="546" cy="76" r="30" fill="#5BC0BE" opacity=".2"/>
             <!-- towers -->
-            <g fill="#0B132B">
+            <g fill="#BCCBDB">
               <rect x="380" y="110" width="66" height="290"/>
               <rect x="462" y="150" width="56" height="250"/>
               <rect x="534" y="88"  width="72" height="312"/>
             </g>
-            <g fill="#6FFFE9" opacity=".5">
+            <g fill="#2C3A58" opacity=".45">
               <rect x="396" y="138" width="11" height="15"/><rect x="424" y="180" width="11" height="15"/>
               <rect x="396" y="222" width="11" height="15"/><rect x="424" y="306" width="11" height="15"/>
               <rect x="476" y="180" width="11" height="15"/><rect x="500" y="264" width="11" height="15"/>
@@ -516,22 +516,22 @@
               <rect x="550" y="286" width="11" height="15"/>
             </g>
             <!-- low-rise row -->
-            <g fill="#16203C">
+            <g fill="#CBD7E3">
               <rect x="34"  y="252" width="88" height="148"/>
               <rect x="136" y="228" width="88" height="172"/>
               <rect x="238" y="264" width="88" height="136"/>
             </g>
-            <g fill="#5BC0BE" opacity=".55">
+            <g fill="#3AA7A3" opacity=".65">
               <path d="M28 252 78 214l56 38zM130 228l50-38 56 38zM232 264l50-38 56 38z"/>
             </g>
-            <g fill="#6FFFE9" opacity=".45">
+            <g fill="#2C3A58" opacity=".4">
               <rect x="56"  y="286" width="14" height="18"/><rect x="90"  y="286" width="14" height="18"/>
               <rect x="158" y="262" width="14" height="18"/><rect x="192" y="262" width="14" height="18"/>
               <rect x="260" y="298" width="14" height="18"/><rect x="294" y="298" width="14" height="18"/>
             </g>
             <!-- central green -->
-            <rect x="0" y="366" width="640" height="34" fill="#0B132B"/>
-            <g fill="#5BC0BE" opacity=".45">
+            <rect x="0" y="366" width="640" height="34" fill="#D2DEE8"/>
+            <g fill="#3AA7A3" opacity=".6">
               <circle cx="60"  cy="360" r="11"/><circle cx="180" cy="360" r="11"/>
               <circle cx="300" cy="360" r="11"/><circle cx="420" cy="360" r="11"/>
               <circle cx="540" cy="360" r="11"/>

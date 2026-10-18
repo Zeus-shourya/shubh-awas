@@ -11,7 +11,7 @@ body.ir {
 body.ir h1, body.ir h2, body.ir h3 { color: var(--t-on-dark); }
 body.ir h1 em, body.ir h2 em, body.ir h3 em { color: var(--aqua); }
 body.ir .lede { color: var(--t-on-dark-mute); }
-body.ir .eyebrow { color: var(--teal); }
+body.ir .eyebrow { color: var(--teal-ink); }
 body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
 
 /* ---- IR header ---------------------------------------------------------- */
@@ -19,7 +19,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   position: sticky;
   top: 0;
   z-index: 90;
-  background: rgba(11,19,43,.94);
+  background: rgba(255,255,255,.93);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
           backdrop-filter: saturate(160%) blur(14px);
   border-bottom: 1px solid var(--line-dark);
@@ -53,7 +53,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   transition: color .3s var(--ease), border-color .3s var(--ease);
 }
 .irnav__link:hover { color: var(--aqua); border-bottom-color: var(--aqua); }
-.irnav__back { color: var(--teal); }
+.irnav__back { color: var(--teal-ink); }
 
 /* Wrapped onto four lines, this sticky bar ate a fifth of a phone screen.
    Below the breakpoint the links become one horizontally scrollable row, so
@@ -89,7 +89,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   height: 760px;
   background:
     radial-gradient(58% 62% at 22% 30%, rgba(91,192,190,.2) 0%, transparent 70%),
-    radial-gradient(46% 54% at 84% 12%, rgba(111,255,233,.13) 0%, transparent 70%);
+    radial-gradient(46% 54% at 84% 12%, rgba(91,192,190,.14) 0%, transparent 70%);
   z-index: -1;
   pointer-events: none;
 }
@@ -104,19 +104,19 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   gap: .6rem;
   margin: 0 0 1.3rem;
   padding: .42rem .95rem;
-  border: 1px solid rgba(111,255,233,.3);
+  border: 1px solid var(--teal-300);
   border-radius: 999px;
   font-size: .655rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 .irhero__stamp b {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--aqua);
-  box-shadow: 0 0 0 3px rgba(111,255,233,.18);
+  box-shadow: 0 0 0 3px rgba(91,192,190,.3);
 }
 .irhero .lede { margin-top: 1.5rem; max-width: 66ch; }
 .irhero__actions {
@@ -145,7 +145,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   font-size: .615rem;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 .opp h3 { font-size: 1.32rem; }
 .opp p { font-size: .93rem; color: var(--t-on-dark-mute); }
@@ -176,7 +176,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
 }
 .fundrow__bar {
   height: 5px;
-  background: rgba(111,255,233,.13);
+  background: var(--n-200);
   overflow: hidden;
 }
 .fundrow__bar i {
@@ -215,7 +215,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   font-size: 1.55rem;
   font-weight: 500;
   line-height: 1;
-  color: var(--teal);
+  color: var(--teal-ink);
   padding-top: .18rem;
 }
 .step h3 { font-size: 1.18rem; }
@@ -241,7 +241,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   font-size: .625rem;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
   white-space: nowrap;
 }
 .terms td:first-child {
@@ -256,9 +256,9 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
 .risk {
   margin-top: clamp(2rem, 4vw, 3rem);
   padding: clamp(1.5rem, 3.2vw, 2.3rem);
-  border: 1px solid rgba(111,255,233,.22);
+  border: 1px solid var(--teal-300);
   border-left-width: 3px;
-  background: rgba(91,192,190,.07);
+  background: var(--teal-50);
 }
 .risk h3 {
   font-size: 1.2rem;
@@ -364,7 +364,7 @@ body.ir .section { padding: clamp(3.4rem, 7vw, 6rem) 0; }
   background: var(--ink-950);
   border-top: 1px solid var(--line-dark);
   padding: clamp(2.4rem, 5vw, 3.4rem) 0 2rem;
-  color: var(--t-on-dark-mute);
+  color: var(--t-body);
   font-size: .8rem;
 }
 .irfoot__bot {

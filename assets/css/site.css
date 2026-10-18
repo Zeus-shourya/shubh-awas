@@ -20,37 +20,83 @@
   --c4: #5BC0BE;   /* blue green   */
   --c5: #6FFFE9;   /* turquoise    */
 
-  /* semantic aliases */
-  --ink:        var(--c1);
-  --ink-800:    var(--c2);
-  --ink-600:    var(--c3);
-  --ink-950:    #060B18;   /* one step below #0B132B, for the footer */
-  --ink-700:    #16203C;   /* between c1 and c2, for card fills      */
+  /* ======================================================================
+     LIGHT THEME.
+     The five brand colours above are unchanged - they are still the brand.
+     What changed is which end of each ramp the page sits on: surfaces moved
+     roughly seven steps up toward white, and the brand navy now does its work
+     as TYPE and accent rather than as background.
 
-  --teal:       var(--c4);
-  --aqua:       var(--c5);
+     The navy and teal ramps below are the whole palette. Everything else in
+     this file is expressed through them, so the theme can be moved again by
+     editing only this block.
+     ====================================================================== */
 
-  /* Teal for SMALL TYPE ON LIGHT. #5BC0BE on white is only 2.18:1 - fine for
-     rules, marks and large display, far too low for label copy people have to
-     read. This darkened teal gives 5.85:1 and still reads unmistakably as the
-     brand colour. On dark backgrounds --teal is used unchanged (8.9:1 on
-     #0B132B). To go back to the literal swatch everywhere, point this at
-     var(--c4). */
-  --teal-ink:   #14655F;
+  /* navy ramp - 900 is the brand #0B132B, 50 is near-white */
+  --n-900: #0B132B;
+  --n-800: #16203C;
+  --n-700: #1C2541;
+  --n-600: #2C3A58;
+  --n-500: #3A506B;
+  --n-400: #5A7190;
+  --n-300: #8FA0B6;
+  --n-200: #C3CEDC;
+  --n-100: #E2E9F0;
+  --n-50:  #F3F7FA;
 
-  --paper:      #F4F7FA;
-  --paper-2:    #E7EEF4;
+  /* teal ramp - 400 is the brand #5BC0BE */
+  --teal-700: #14655F;
+  --teal-600: #1B8580;
+  --teal-500: #3AA7A3;
+  --teal-400: #5BC0BE;
+  --teal-300: #8FD7D5;
+  --teal-200: #BCE9E8;
+  --teal-100: #DFF5F4;
+  --teal-50:  #F0FAFA;
+
+  /* ---- surfaces -------------------------------------------------------
+     Where the old theme painted near-black, the page now carries a tint.
+     --ink and --ink-800/950 keep their names because 60-odd rules reference
+     them, but they are now the LIGHT band surfaces, not dark ones. */
+  --ink:        #E8F0F5;   /* feature band - was #0B132B */
+  --ink-800:    #EEF4F8;   /* secondary band - was #1C2541 */
+  --ink-950:    #DCE7EF;   /* footer, the deepest tint - was #060B18 */
+  --ink-700:    #F1F6F9;   /* card fills on bands */
+  --ink-600:    var(--n-300);  /* hairline / quiet borders */
+
+  --teal:       var(--teal-400);
+  /* On a light page the neon turquoise #6FFFE9 has almost no contrast, so the
+     "bright" accent steps down the ramp. The literal swatch is kept as --c5
+     for anywhere a saturated fill is still wanted. */
+  --aqua:       var(--teal-700);
+
+  /* Teal for SMALL TYPE. #5BC0BE on white is only 2.18:1 - fine for rules,
+     marks and large display, far too low for label copy. --teal-700 gives
+     5.85:1 and still reads unmistakably as the brand colour. */
+  --teal-ink:   var(--teal-700);
+
+  --paper:      var(--n-50);
+  --paper-2:    var(--n-100);
   --white:      #FFFFFF;
 
-  /* text */
-  --t-on-dark:       #EAF2F6;
-  --t-on-dark-mute:  #A9BCCE;
-  --t-on-light:      var(--c1);
-  --t-on-light-mute: #4A5B72;
+  /* ---- text -----------------------------------------------------------
+     All four now resolve to dark type, because every surface is light.
+     Contrast on white: strong 16.1:1, body 7.4:1, muted 5.1:1. */
+  --t-strong:        var(--n-800);
+  --t-body:          #46566E;
+  --t-muted:         #5E6E85;
+  --on-accent:       var(--n-900);   /* type on a teal fill */
 
-  /* lines */
-  --line-dark:  rgba(111,255,233,.16);
-  --line-light: rgba(11,19,43,.12);
+  --t-on-dark:       var(--t-strong);
+  --t-on-dark-mute:  var(--t-muted);
+  --t-on-light:      var(--t-strong);
+  --t-on-light-mute: var(--t-body);
+
+  /* ---- lines ----------------------------------------------------------
+     The old --line-dark was a translucent turquoise, which simply vanishes
+     on a light band. Both are now tinted navy. */
+  --line-dark:  rgba(22,32,60,.14);
+  --line-light: rgba(22,32,60,.12);
 
   /* type */
   --f-display: "Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
@@ -104,7 +150,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   border-radius: 3px;
 }
 
-::selection { background: var(--aqua); color: var(--ink); }
+::selection { background: var(--teal-200); color: var(--on-accent); }
 
 /* ---- 3. Typography ------------------------------------------------------ */
 h1, h2, h3, h4 {
@@ -156,7 +202,7 @@ p:last-child { margin-bottom: 0; }
   background: currentColor;
   flex: none;
 }
-.on-dark .eyebrow, .on-dark2 .eyebrow { color: var(--teal); }
+.on-dark .eyebrow, .on-dark2 .eyebrow { color: var(--teal-ink); }
 
 /* Ornamental rule - the diamond divider under centred section headings. */
 .orn {
@@ -166,7 +212,7 @@ p:last-child { margin-bottom: 0; }
   gap: .8rem;
   margin: 1.5rem auto;
   max-width: 210px;
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 .orn::before, .orn::after {
   content: "";
@@ -218,8 +264,8 @@ p:last-child { margin-bottom: 0; }
   top: -60px;
   transform: translateX(-50%);
   z-index: 300;
-  background: var(--aqua);
-  color: var(--ink);
+  background: var(--n-800);
+  color: #FFFFFF;
   padding: .7rem 1.3rem;
   font-size: .8rem;
   font-weight: 500;
@@ -257,7 +303,7 @@ p:last-child { margin-bottom: 0; }
 .btn--solid {
   background: var(--teal);
   border-color: var(--teal);
-  color: var(--ink);
+  color: var(--on-accent);
 }
 .btn--solid:hover {
   background: var(--aqua);
@@ -267,7 +313,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .btn--ghost {
-  border-color: rgba(234,242,246,.42);
+  border-color: var(--n-300);
   color: var(--t-on-dark);
 }
 .btn--ghost:hover {
@@ -278,12 +324,12 @@ p:last-child { margin-bottom: 0; }
 
 .btn--outline {
   border-color: var(--ink-600);
-  color: var(--ink);
+  color: var(--t-strong);
 }
 .btn--outline:hover {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--t-on-dark);
+  background: var(--t-strong);
+  border-color: var(--t-strong);
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
@@ -302,7 +348,7 @@ p:last-child { margin-bottom: 0; }
   transition: gap .3s var(--ease), color .3s var(--ease);
 }
 .link-u:hover { gap: .85rem; }
-.on-dark .link-u, .on-dark2 .link-u { color: var(--teal); }
+.on-dark .link-u, .on-dark2 .link-u { color: var(--teal-ink); }
 .on-dark .link-u:hover, .on-dark2 .link-u:hover { color: var(--aqua); }
 
 /* ---- 6. Header ---------------------------------------------------------- */
@@ -319,7 +365,7 @@ p:last-child { margin-bottom: 0; }
               backdrop-filter .45s var(--ease), height .45s var(--ease);
 }
 .header.is-stuck {
-  background: rgba(11,19,43,.93);
+  background: rgba(255,255,255,.92);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
           backdrop-filter: saturate(160%) blur(14px);
   border-bottom-color: var(--line-dark);
@@ -358,7 +404,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 400;
   letter-spacing: .34em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 .lockup--sm .lockup__mark { width: 34px; height: 34px; }
 .lockup--sm .lockup__word { font-size: 1.05rem; }
@@ -396,10 +442,10 @@ p:last-child { margin-bottom: 0; }
 .nav__link--ir {
   padding: .55rem 1.05rem;
   border: 1px solid rgba(91,192,190,.55);
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 .nav__link--ir::after { display: none; }
-.nav__link--ir:hover { background: var(--teal); color: var(--ink); border-color: var(--teal); }
+.nav__link--ir:hover { background: var(--teal); color: var(--on-accent); border-color: var(--teal); }
 
 .header__tel {
   display: none;
@@ -428,7 +474,7 @@ p:last-child { margin-bottom: 0; }
   display: grid;
   place-items: center;
   background: none;
-  border: 1px solid rgba(234,242,246,.3);
+  border: 1px solid var(--n-300);
   border-radius: 2px;
   cursor: pointer;
   flex: none;
@@ -518,9 +564,9 @@ p:last-child { margin-bottom: 0; }
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(64% 46% at 50% 45%, rgba(11,19,43,.88) 0%, rgba(11,19,43,.66) 58%, rgba(11,19,43,0) 100%),
-    radial-gradient(120% 78% at 50% 8%, rgba(28,37,65,.24) 0%, rgba(11,19,43,.7) 62%, rgba(11,19,43,.93) 100%),
-    linear-gradient(180deg, rgba(11,19,43,.84) 0%, rgba(11,19,43,.34) 36%, rgba(11,19,43,.9) 100%);
+    radial-gradient(64% 46% at 50% 45%, rgba(255,255,255,.9) 0%, rgba(255,255,255,.7) 58%, rgba(255,255,255,0) 100%),
+    radial-gradient(120% 80% at 50% 4%, rgba(255,255,255,.72) 0%, rgba(243,247,250,.5) 56%, rgba(226,233,240,.72) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.3) 38%, rgba(226,233,240,.85) 100%);
 }
 .hero__in {
   padding: calc(var(--hdr) + 3.5rem) var(--gut) 6.5rem;
@@ -532,7 +578,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 400;
   letter-spacing: .42em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 .hero h1 {
   font-weight: 300;
@@ -574,7 +620,7 @@ p:last-child { margin-bottom: 0; }
   display: block;
   width: 1px;
   height: 44px;
-  background: rgba(169,188,206,.3);
+  background: var(--n-300);
   overflow: hidden;
 }
 .hero__scroll i::after {
@@ -742,7 +788,7 @@ p:last-child { margin-bottom: 0; }
   font-size: .625rem;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 
 .sig {
@@ -848,7 +894,7 @@ p:last-child { margin-bottom: 0; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11,19,43,.04) 0%, rgba(11,19,43,.52) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(22,32,60,.42) 100%);
 }
 .card__badges {
   position: absolute;
@@ -866,13 +912,13 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: .17em;
   text-transform: uppercase;
   background: var(--aqua);
-  color: var(--ink);
+  color: #FFFFFF;
   border-radius: 2px;
 }
-.badge--alt   { background: var(--teal); color: var(--ink); }
+.badge--alt   { background: var(--teal); color: var(--on-accent); }
 .badge--quiet {
-  background: rgba(11,19,43,.82);
-  color: var(--t-on-dark);
+  background: rgba(22,32,60,.78);
+  color: #FFFFFF;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
 }
@@ -980,7 +1026,7 @@ p:last-child { margin-bottom: 0; }
   font-family: var(--f-display);
   font-size: .95rem;
   letter-spacing: .2em;
-  color: var(--teal);
+  color: var(--teal-ink);
 }
 .val h3 { font-size: 1.4rem; color: var(--t-on-dark); }
 .val p { font-size: .945rem; color: var(--t-on-dark-mute); }
@@ -999,7 +1045,7 @@ p:last-child { margin-bottom: 0; }
   width: 620px;
   height: 620px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(91,192,190,.18) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(91,192,190,.22) 0%, transparent 68%);
   pointer-events: none;
 }
 .iband__in {
@@ -1016,20 +1062,20 @@ p:last-child { margin-bottom: 0; }
   display: grid;
   place-items: center;
   text-align: center;
-  border: 1px solid rgba(111,255,233,.32);
+  border: 1px solid var(--teal-300);
   border-radius: 50%;
   font-size: .6rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
   justify-self: center;
 }
 .iband__seal::after {
   content: "";
   position: absolute;
   inset: -14px;
-  border: 1px solid rgba(111,255,233,.14);
-  border-top-color: rgba(111,255,233,.5);
+  border: 1px solid var(--teal-200);
+  border-top-color: var(--teal-500);
   border-radius: 50%;
   animation: sealspin 22s linear infinite;
 }
@@ -1053,7 +1099,7 @@ p:last-child { margin-bottom: 0; }
   font-size: .635rem;
   letter-spacing: .24em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
   margin-bottom: .38rem;
 }
 .dl dd {
@@ -1065,13 +1111,13 @@ p:last-child { margin-bottom: 0; }
 .dl dd a {
   color: var(--t-on-dark);
   text-decoration: none;
-  border-bottom: 1px solid rgba(111,255,233,.35);
+  border-bottom: 1px solid var(--teal-300);
   padding-bottom: 2px;
 }
 .dl dd a:hover { color: var(--aqua); border-bottom-color: var(--aqua); }
 
 .form {
-  background: rgba(255,255,255,.035);
+  background: var(--white);
   border: 1px solid var(--line-dark);
   padding: clamp(1.5rem, 3.4vw, 2.5rem);
   display: grid;
@@ -1091,8 +1137,8 @@ p:last-child { margin-bottom: 0; }
 .field textarea {
   width: 100%;
   padding: .82rem .95rem;
-  background: rgba(11,19,43,.55);
-  border: 1px solid rgba(111,255,233,.2);
+  background: var(--white);
+  border: 1px solid var(--n-200);
   border-radius: 2px;
   color: var(--t-on-dark);
   font-size: .965rem;
@@ -1100,19 +1146,19 @@ p:last-child { margin-bottom: 0; }
   transition: border-color .3s var(--ease), background .3s var(--ease);
 }
 .field textarea { resize: vertical; min-height: 118px; }
-.field input::placeholder, .field textarea::placeholder { color: rgba(169,188,206,.55); }
+.field input::placeholder, .field textarea::placeholder { color: var(--n-300); }
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
   outline: none;
   border-color: var(--aqua);
-  background: rgba(11,19,43,.85);
+  background: var(--white);
 }
 .field select {
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%236FFFE9' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%2314655F' stroke-width='1.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right .95rem center;
   background-size: 12px;
@@ -1128,7 +1174,7 @@ p:last-child { margin-bottom: 0; }
   display: none;
   padding: .95rem 1.1rem;
   border-left: 2px solid var(--aqua);
-  background: rgba(111,255,233,.1);
+  background: var(--teal-100);
   font-size: .9rem;
 }
 .form__ok.is-on { display: block; }
@@ -1136,7 +1182,7 @@ p:last-child { margin-bottom: 0; }
 /* ---- 15. Footer --------------------------------------------------------- */
 .footer {
   background: var(--ink-950);
-  color: var(--t-on-dark-mute);
+  color: var(--t-body);
   padding: clamp(3rem, 6vw, 4.5rem) 0 2rem;
   border-top: 1px solid var(--line-dark);
 }
@@ -1153,12 +1199,12 @@ p:last-child { margin-bottom: 0; }
   font-weight: 500;
   letter-spacing: .24em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-ink);
   margin: 0 0 1.15rem;
 }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .68rem; }
 .footer a {
-  color: var(--t-on-dark-mute);
+  color: var(--t-body);
   text-decoration: none;
   font-size: .92rem;
   transition: color .28s var(--ease);
