@@ -91,6 +91,60 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* ---- 2b. Desktop nav dropdowns -----------------------------------------
+     Click to open rather than hover: a hover menu is unusable on a touch
+     screen and awkward for anyone using a pointer with limited accuracy. The
+     menus are plain markup, so without JS they stay closed and every link in
+     them is still reachable from the footer and the mobile drawer.
+     ------------------------------------------------------------------------ */
+  function wireNavMenus() {
+    var groups = $$(".nav__group");
+    if (!groups.length) return;
+
+    function closeAll(except) {
+      groups.forEach(function (g) {
+        if (g === except) return;
+        g.classList.remove("is-open");
+        var t = $(".nav__toggle", g);
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    groups.forEach(function (g) {
+      var toggle = $(".nav__toggle", g);
+      if (!toggle) return;
+
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = g.classList.contains("is-open");
+        closeAll(g);
+        g.classList.toggle("is-open", !open);
+        toggle.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+
+      /* Opening on focus-within would fight the click handler, so the menu is
+         only closed when focus leaves the group entirely. */
+      g.addEventListener("focusout", function (e) {
+        if (!g.contains(e.relatedTarget)) {
+          g.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav__group")) closeAll(null);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      var open = groups.filter(function (g) { return g.classList.contains("is-open"); })[0];
+      if (!open) return;
+      closeAll(null);
+      var t = $(".nav__toggle", open);
+      if (t) t.focus();
+    });
+  }
+
   /* ---- 3. Mobile drawer -------------------------------------------------- */
   function wireDrawer() {
     var burger = $("#burger");
@@ -353,6 +407,7 @@
   function init() {
     wireContacts();
     wireHeader();
+    wireNavMenus();
     wireDrawer();
     wireReveal();
     wireCounters();

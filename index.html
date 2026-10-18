@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="utf-8">
@@ -35,6 +35,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="/assets/css/pages.css?v=2">
 
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/site.js" defer></script>
@@ -115,11 +116,12 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ══════════════════════════════ HEADER ══════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HEADER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- NAV:START -->
 <header class="header" id="header">
   <div class="header__in">
 
-    <a class="lockup" href="#home" aria-label="Shubh Awas Properties &mdash; home">
+    <a class="lockup" href="/" aria-label="Shubh Awas Properties &mdash; home">
       <svg class="lockup__mark" viewBox="0 0 96 96" aria-hidden="true">
         <rect width="96" height="96" rx="23.04" fill="#0B132B"/>
         <path d="M18 47.5 48 21.5 78 47.5" fill="none" stroke="#5BC0BE" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -133,11 +135,40 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a class="nav__link" href="#home">Home</a>
-      <a class="nav__link" href="#about">About</a>
-      <a class="nav__link" href="#projects">Our Projects</a>
-      <a class="nav__link" href="#contact">Contact</a>
-      <a class="nav__link nav__link--ir" href="investors.html">Investors</a>
+      <a class="nav__link is-active" href="/" aria-current="page">Home</a>
+      <div class="nav__group">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navmenu-properties">Properties</button>
+        <div class="nav__menu" id="navmenu-properties">
+          <a href="/plots-in-rohtak/">Residential Plots</a>
+          <a href="/independent-floors-in-rohtak/">Independent Floors</a>
+          <a href="/township-homes-in-rohtak/">Township Homes</a>
+          <a href="/commercial-property-in-rohtak/">Commercial Property</a>
+          <a href="/resale-and-rental-property-in-rohtak/">Resale &amp; Rentals</a>
+          <a href="/home-loan-and-registry-support/">Loan &amp; Registry Support</a>
+        </div>
+      </div>
+      <div class="nav__group">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navmenu-areas">Areas</button>
+        <div class="nav__menu" id="navmenu-areas">
+          <a href="/areas/omaxe-city-sector-22d/">Omaxe City, Sector 22D</a>
+          <a href="/areas/suncity-sector-34-36a/">Suncity, Sector 34-36A</a>
+          <a href="/areas/one-city-sector-27a/">One City, Sector 27A</a>
+          <a href="/areas/hsvp-sectors-rohtak/">HSVP Sectors</a>
+          <a href="/areas/imt-rohtak/">IMT Rohtak</a>
+        </div>
+      </div>
+      <div class="nav__group">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navmenu-projects">Projects</button>
+        <div class="nav__menu" id="navmenu-projects">
+          <a href="/projects/">All projects</a>
+          <a href="/projects/forteasia/">Forteasia</a>
+          <a href="/projects/florence/">Florence</a>
+          <a href="/projects/omaxe-city/">Omaxe City</a>
+        </div>
+      </div>
+      <a class="nav__link" href="/about/">About</a>
+      <a class="nav__link" href="/contact/">Contact</a>
+      <a class="nav__link nav__link--ir" href="/investors.html">Investors</a>
     </nav>
 
     <a class="header__tel js-phone" href="#">
@@ -152,22 +183,51 @@
   </div>
 </header>
 
-<!-- ══════════════════════════════ DRAWER ══════════════════════════════ -->
 <div class="drawer" id="drawer">
-  <a class="drawer__link" href="#home">Home</a>
-  <a class="drawer__link" href="#about">About</a>
-  <a class="drawer__link" href="#projects">Our Projects</a>
-  <a class="drawer__link" href="#contact">Contact</a>
-  <a class="drawer__link" href="investors.html">Investors</a>
+  <a class="drawer__link" href="/" aria-current="page">Home</a>
+  <div class="drawer__group">
+    <p class="drawer__grouphead">Properties</p>
+    <div class="drawer__sub">
+      <a href="/plots-in-rohtak/">Residential Plots</a>
+      <a href="/independent-floors-in-rohtak/">Independent Floors</a>
+      <a href="/township-homes-in-rohtak/">Township Homes</a>
+      <a href="/commercial-property-in-rohtak/">Commercial Property</a>
+      <a href="/resale-and-rental-property-in-rohtak/">Resale &amp; Rentals</a>
+      <a href="/home-loan-and-registry-support/">Loan &amp; Registry Support</a>
+    </div>
+  </div>
+  <div class="drawer__group">
+    <p class="drawer__grouphead">Areas</p>
+    <div class="drawer__sub">
+      <a href="/areas/omaxe-city-sector-22d/">Omaxe City, Sector 22D</a>
+      <a href="/areas/suncity-sector-34-36a/">Suncity, Sector 34-36A</a>
+      <a href="/areas/one-city-sector-27a/">One City, Sector 27A</a>
+      <a href="/areas/hsvp-sectors-rohtak/">HSVP Sectors</a>
+      <a href="/areas/imt-rohtak/">IMT Rohtak</a>
+    </div>
+  </div>
+  <div class="drawer__group">
+    <p class="drawer__grouphead">Projects</p>
+    <div class="drawer__sub">
+      <a href="/projects/">All projects</a>
+      <a href="/projects/forteasia/">Forteasia</a>
+      <a href="/projects/florence/">Florence</a>
+      <a href="/projects/omaxe-city/">Omaxe City</a>
+    </div>
+  </div>
+  <a class="drawer__link" href="/about/">About</a>
+  <a class="drawer__link" href="/contact/">Contact</a>
+  <a class="drawer__link" href="/investors.html">Investors</a>
   <div class="drawer__foot">
     <a class="drawer__tel js-phone" href="#">+91 98121 34638</a>
     <a class="link-u" data-wa href="#">Chat on WhatsApp</a>
   </div>
 </div>
+<!-- NAV:END -->
 
 <main id="main">
 
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="hero" id="home">
 
   <svg class="hero__art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -266,7 +326,7 @@
   </a>
 </section>
 
-<!-- ══════════════════════════════ TICKER ══════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TICKER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker__track" id="ticker">
     <span>Residential Plots</span>
@@ -278,7 +338,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════ ABOUT ══════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• ABOUT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="section on-white" id="about">
   <div class="shell">
 
@@ -368,7 +428,7 @@
   </div>
 </section>
 
-<!-- ═════════════════════════════ PROJECTS ═════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PROJECTS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="section on-paper" id="projects">
   <div class="shell-wide">
 
@@ -384,7 +444,7 @@
 
     <div class="cards">
 
-      <!-- ── FORTEASIA ─────────────────────────────────────────────────── -->
+      <!-- â”€â”€ FORTEASIA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <article class="card" data-reveal>
         <div class="card__art">
           <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -443,7 +503,7 @@
         <a class="card__link" data-wa-project="Forteasia" href="#" target="_blank" rel="noopener">Enquire about Forteasia</a>
       </article>
 
-      <!-- ── FLORENCE ──────────────────────────────────────────────────── -->
+      <!-- â”€â”€ FLORENCE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <article class="card" data-reveal style="--d:100ms">
         <div class="card__art">
           <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -500,7 +560,7 @@
         <a class="card__link" data-wa-project="Florence" href="#" target="_blank" rel="noopener">Enquire about Florence</a>
       </article>
 
-      <!-- ── OMAXE ─────────────────────────────────────────────────────── -->
+      <!-- â”€â”€ OMAXE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <article class="card" data-reveal style="--d:200ms">
         <div class="card__art">
           <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -583,7 +643,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ WHY / VALUES ═══════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WHY / VALUES â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="section on-dark">
   <div class="shell-wide">
 
@@ -622,7 +682,7 @@
   </div>
 </section>
 
-<!-- ═════════════════════════ INVESTOR TEASER ══════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• INVESTOR TEASER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="section iband">
   <div class="shell-wide iband__in">
     <div>
@@ -645,7 +705,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════ CONTACT ═════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CONTACT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="section on-dark" id="contact">
   <div class="shell">
 
@@ -751,38 +811,58 @@ Rohtak, Haryana 124010</span>
 
 </main>
 
-<!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- FOOTER:START -->
 <footer class="footer">
   <div class="shell-wide">
 
     <div class="footer__top">
       <div>
-        <a class="lockup lockup--sm" href="#home" aria-label="Shubh Awas Properties &mdash; home">
-          <svg class="lockup__mark" viewBox="0 0 96 96" aria-hidden="true">
-            <rect width="96" height="96" rx="23.04" fill="#0B132B"/>
-            <path d="M18 47.5 48 21.5 78 47.5" fill="none" stroke="#5BC0BE" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M38 75V60.5a10 10 0 0 1 20 0V75" fill="none" stroke="#6FFFE9" stroke-width="5.2" stroke-linecap="round"/>
-            <rect x="24" y="79.5" width="48" height="4.6" rx="2.3" fill="#5BC0BE"/>
-          </svg>
+        <a class="lockup lockup--sm" href="/" aria-label="Shubh Awas Properties &mdash; home">
+      <svg class="lockup__mark" viewBox="0 0 96 96" aria-hidden="true">
+        <rect width="96" height="96" rx="23.04" fill="#0B132B"/>
+        <path d="M18 47.5 48 21.5 78 47.5" fill="none" stroke="#5BC0BE" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M38 75V60.5a10 10 0 0 1 20 0V75" fill="none" stroke="#6FFFE9" stroke-width="5.2" stroke-linecap="round"/>
+        <rect x="24" y="79.5" width="48" height="4.6" rx="2.3" fill="#5BC0BE"/>
+      </svg>
           <span class="lockup__type">
             <span class="lockup__word">Shubh Awas</span>
             <span class="lockup__desc">Properties</span>
           </span>
         </a>
         <p class="footer__blurb">
-          Residential plots, independent floors and township homes across Haryana.
-          Founded and run by Jagvender Siwach.
+          Residential plots, independent floors, township homes and commercial
+          property in Rohtak, Haryana. Founded and run by Jagvender Siwach.
         </p>
+        <!-- Repeated in full on purpose: Google compares the address on the site
+             against the Business Profile, so it is stated identically in both. -->
+        <address class="footer__nap">
+          Shubh Awas Properties<br>
+          RHXP+RH6, Sector 22, Sunari Kalan<br>
+          Rohtak, Haryana 124010
+        </address>
       </div>
 
       <div>
-        <h4>Explore</h4>
+        <h4>What We Handle</h4>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Our Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="investors.html">Investors</a></li>
+          <li><a href="/plots-in-rohtak/">Residential Plots</a></li>
+          <li><a href="/independent-floors-in-rohtak/">Independent Floors</a></li>
+          <li><a href="/township-homes-in-rohtak/">Township Homes</a></li>
+          <li><a href="/commercial-property-in-rohtak/">Commercial Property</a></li>
+          <li><a href="/resale-and-rental-property-in-rohtak/">Resale &amp; Rentals</a></li>
+          <li><a href="/home-loan-and-registry-support/">Loan &amp; Registry Support</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Areas in Rohtak</h4>
+        <ul>
+          <li><a href="/areas/omaxe-city-sector-22d/">Omaxe City, Sector 22D</a></li>
+          <li><a href="/areas/suncity-sector-34-36a/">Suncity, Sector 34-36A</a></li>
+          <li><a href="/areas/one-city-sector-27a/">One City, Sector 27A</a></li>
+          <li><a href="/areas/hsvp-sectors-rohtak/">HSVP Sectors</a></li>
+          <li><a href="/areas/imt-rohtak/">IMT Rohtak</a></li>
         </ul>
       </div>
 
@@ -792,18 +872,12 @@ Rohtak, Haryana 124010</span>
           <li><a class="js-phone" href="#">+91 98121 34638</a></li>
           <li><a data-wa href="#">WhatsApp</a></li>
           <li><a class="js-mail" href="#">jagvindersiwach@gmail.com</a></li>
-          <li><a class="js-google-profile" href="https://maps.google.com/?cid=14713810717315562644"
-                 target="_blank" rel="noopener">Find us on Google</a></li>
+          <li><a class="js-google-profile" href="https://maps.google.com/?cid=14713810717315562644" target="_blank" rel="noopener">Find us on Google</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/investors.html">Investors</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
         </ul>
-
-        <!-- Repeated in full here on purpose: Google cross-checks the address
-             on the site against the Business Profile, so it is stated
-             identically in both places. -->
-        <address class="footer__nap">
-          Shubh Awas Properties<br>
-          RHXP+RH6, Sector 22, Sunari Kalan<br>
-          Rohtak, Haryana 124010
-        </address>
       </div>
     </div>
 
@@ -822,8 +896,9 @@ Rohtak, Haryana 124010</span>
 
   </div>
 </footer>
+<!-- FOOTER:END -->
 
-<!-- ═══════════════════════════ WHATSAPP BUTTON ════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WHATSAPP BUTTON â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <a class="wa" data-wa href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <span class="wa__ico" aria-hidden="true">
     <svg viewBox="0 0 32 32"><path d="M16.04 3C8.9 3 3.1 8.8 3.1 15.94c0 2.28.6 4.5 1.74 6.46L3 29.5l7.28-1.9a12.9 12.9 0 0 0 5.76 1.37h.01c7.13 0 12.93-5.8 12.93-12.94 0-3.46-1.35-6.7-3.8-9.15A12.83 12.83 0 0 0 16.04 3Zm0 23.7h-.01a10.7 10.7 0 0 1-5.46-1.5l-.4-.23-4.06 1.06 1.08-3.96-.26-.4a10.68 10.68 0 0 1-1.64-5.72c0-5.92 4.83-10.75 10.76-10.75 2.87 0 5.57 1.12 7.6 3.15a10.68 10.68 0 0 1 3.15 7.6c0 5.94-4.83 10.76-10.76 10.76Zm5.9-8.05c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.51-.16-.73.17-.21.32-.83 1.04-1.02 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.86-1.6-1.92-1.79-2.24-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.56.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55l-.61-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.08 1.3 3.29c.16.21 2.24 3.42 5.43 4.8.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.78 2.16-1.53.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z"/></svg>
@@ -833,3 +908,4 @@ Rohtak, Haryana 124010</span>
 
 </body>
 </html>
+
